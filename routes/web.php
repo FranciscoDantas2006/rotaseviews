@@ -5,6 +5,7 @@ use App\Http\Controllers\PaginaController;
 use App\Http\Controllers\CursoController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\DisciplinaController;
+use App\Http\Controllers\AlunoController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -46,10 +47,12 @@ Route::get('/produto/{id}', [PaginaController::class, 'produto']);
 // Atividades 13, 14 e 15 (CursoController)
 Route::get('/cursos', [CursoController::class, 'index']);
 Route::get('/cursos/novo', [CursoController::class, 'create']);
-Route::get('/cursos/detalhes', [CursoController::class, 'show']);
+Route::get('/cursos/lista', [CursoController::class, 'listagem']); // Adicionado conforme PDF Ex 3
+Route::get('/cursos/{id}', [CursoController::class, 'show']); // Ajustado para aceitar ID conforme PDF Ex 4
 Route::post('/cursos', [CursoController::class, 'store']);
 
 //Continuação Atividade de Controllers
+Route::resource('alunos', AlunoController::class); // Adicionado conforme PDF Ex 6
 Route::get('/produtos/create', [ProdutoController::class, 'create']);
 Route::post('/produtos', [ProdutoController::class, 'store']);
 Route::get('/disciplinas', [DisciplinaController::class, 'index']);

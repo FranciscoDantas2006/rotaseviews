@@ -2,6 +2,5 @@
 <form action="/disciplinas" method="POST">
     @csrf
     <label>Nome da Disciplina:</label>
-    <input type="text" name="name">
-    <button type="submit">Salvar</button>
+    <input type="text" name="nome"> <button type="submit">Salvar</button>
 </form>

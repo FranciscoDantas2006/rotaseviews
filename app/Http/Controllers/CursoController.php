@@ -3,32 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Curso; // IMPORTANTE: Adicione esta linha!
 
 class CursoController extends Controller
 {
-    // Agora busca todos os cursos do banco
+    // Exercício 1
     public function index() {
-        $cursos = Curso::all();
-        return view('cursos.index', ['cursos' => $cursos]);
+        return 'lista de cursos';
     }
 
+    // Exercício 2
     public function create() {
         return view('cursos.create');
     }
 
-    // Agora SALVA de verdade no banco de dados
-    public function store(Request $request) {
-        $curso = new Curso;
-        $curso->nome = $request->nome;
-        // Se tiver carga horária no formulário, adicione aqui
-        $curso->save();
-
-        return redirect('/cursos'); // Redireciona para a lista atualizada
+    // Exercício 3 (A LISTA QUE ESTAVA EM FALTA)
+    public function listagem() {
+        $cursos = ['ADS', 'Zootecnia', 'Direito'];
+        return view('cursos.listagem', compact('cursos'));
     }
 
-    public function show() {
-        $nomeCurso = "Análise e Desenvolvimento de Sistemas";
-        return view('cursos.show', ['curso' => $nomeCurso]);
+    // Exercício 4
+    public function show($id) {
+        return "Curso Selecionado: ID $id";
+    }
+
+    // Exercício 5
+    public function store(Request $request) {
+        $nomeCurso = $request->input('nome');
+        return "Curso Cadastrado: $nomeCurso";
     }
 }

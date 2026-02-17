@@ -13,13 +13,12 @@ class DisciplinaController extends Controller
 
     // Recebe os dados do formulário
     public function store(Request $request) {
-        $nome = $request->input('name'); // O PDF pede o nome do input como 'name'
-        return "Disciplina cadastrada: " . $nome;
+        $nome = $request->input('nome');
+        return "Disciplina '{$nome}' cadastrada com sucesso!";
     }
 
     // Mostra os detalhes (show.blade.php)
     public function show($id) {
-        // Como o PDF pede, passamos um ID e um Nome fixo para testar
         return view('disciplinas.show', ['id' => $id, 'nome' => 'Programação Web']);
     }
 }

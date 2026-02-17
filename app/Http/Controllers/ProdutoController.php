@@ -11,9 +11,8 @@ class ProdutoController extends Controller
         return view('produtos.create');
     }
 
-    // Recebe o que você digitou e mostra na tela
     public function store(Request $request) {
         $nome = $request->input('nome');
-        return "Produto: " . $nome;
+        return "produto: $nome";
     }
 }
